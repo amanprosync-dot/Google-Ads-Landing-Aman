@@ -1,8 +1,8 @@
 // Show the next Saturday's webinar date (India time). Rolls over to the
-// following Saturday once the 11:00 AM session has started.
+// following Saturday at 2:00 PM IST (when the session ends).
 (function () {
   var IST_OFFSET = 5.5 * 60 * 60 * 1000;
-  var START_HOUR = 11;
+  var START_HOUR = 14;
   var MONTHS = [
     "January",
     "February",
@@ -77,9 +77,9 @@
       "@type": "EducationEvent",
       name: "Amazon FBA Live Webinar with Amar Bedi",
       description:
-        "A 2-hour live workshop on selling established brands via Amazon FBA and launching a private label, followed by an open Q&A.",
+        "A 3-hour live workshop on selling established brands via Amazon FBA and launching a private label, followed by an open Q&A.",
       startDate: day + "T11:00:00+05:30",
-      endDate: day + "T13:00:00+05:30",
+      endDate: day + "T14:00:00+05:30",
       eventStatus: "https://schema.org/EventScheduled",
       eventAttendanceMode:
         "https://schema.org/OnlineEventAttendanceMode",
@@ -134,5 +134,41 @@
         if (other !== item) other.open = false;
       });
     });
+  });
+})();
+
+// DPDP: show notice and take affirmative consent before sending visitors to
+// the Instamojo registration form. Without JS / <dialog>, links work as normal.
+(function () {
+  var dialog = document.getElementById("consent-dialog");
+  if (!dialog || typeof dialog.showModal !== "function") return;
+  var box = document.getElementById("consent-checkbox");
+  var go = document.getElementById("consent-continue");
+  var cancel = document.getElementById("consent-cancel");
+  var form = document.getElementById("consent-form");
+  var target = null;
+
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest('a[href*="instamojo.com"]');
+    if (!a) return;
+    e.preventDefault();
+    target = a.href;
+    box.checked = false;
+    go.disabled = true;
+    dialog.showModal();
+    box.focus();
+  });
+
+  box.addEventListener("change", function () {
+    go.disabled = !box.checked;
+  });
+  cancel.addEventListener("click", function () {
+    dialog.close();
+  });
+  form.addEventListener("submit", function () {
+    if (box.checked && target) window.open(target, "_blank", "noopener");
+  });
+  dialog.addEventListener("click", function (e) {
+    if (e.target === dialog) dialog.close(); // click on backdrop
   });
 })();
