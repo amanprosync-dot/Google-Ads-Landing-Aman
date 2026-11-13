@@ -1483,6 +1483,8 @@ footer {
 
 /* ── DPDP CONSENT DIALOG ── */
 .consent-dialog {
+  margin: auto;
+  inset: 0;
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 24px;
