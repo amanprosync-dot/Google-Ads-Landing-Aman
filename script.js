@@ -38,13 +38,31 @@
 
   function render() {
     var d = nextWebinar();
-    var label =
-      "Saturday, " +
-      ordinal(d.getUTCDate()) +
-      " " +
-      MONTHS[d.getUTCMonth()];
+
+    // Date variables (computed in JS, reused anywhere in the HTML)
+    var webinarWeekday = "Saturday";
+    var webinarDay = ordinal(d.getUTCDate()); // e.g. "14th"
+    var webinarMonth = MONTHS[d.getUTCMonth()]; // e.g. "November"
+    var webinarYear = d.getUTCFullYear(); // e.g. 2026
+    var webinarDate = webinarWeekday + ", " + webinarDay + " " + webinarMonth;
+
+    window.WEBINAR_DATE = {
+      weekday: webinarWeekday,
+      day: webinarDay,
+      month: webinarMonth,
+      year: webinarYear,
+      full: webinarDate,
+    };
+
+    // Plug the variables into the HTML.
+    // <span class="webinar-date"></span>          -> "Saturday, 14th November"
+    // <span data-webinar="day|month|year|weekday|full"></span> -> single part
     document.querySelectorAll(".webinar-date").forEach(function (el) {
-      el.textContent = label;
+      el.textContent = webinarDate;
+    });
+    document.querySelectorAll("[data-webinar]").forEach(function (el) {
+      var v = window.WEBINAR_DATE[el.getAttribute("data-webinar")];
+      if (v !== undefined) el.textContent = v;
     });
     renderEventSchema(d);
   }
