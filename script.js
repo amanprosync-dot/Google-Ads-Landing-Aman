@@ -94,6 +94,18 @@
   setInterval(render, 60 * 1000);
 })();
 
+// FAQ "Load More"
+(function () {
+  var btn = document.getElementById("faq-more-btn");
+  var more = document.getElementById("faq-more");
+  if (!btn || !more) return;
+  btn.addEventListener("click", function () {
+    more.classList.add("open");
+    btn.setAttribute("aria-expanded", "true");
+    btn.parentNode.classList.add("hide");
+  });
+})();
+
 // FAQ accordion: opening one question closes the others
 (function () {
   var items = document.querySelectorAll(".faq-item");

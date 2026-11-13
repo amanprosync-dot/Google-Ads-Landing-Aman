@@ -974,6 +974,65 @@ h1 .accent {
 .faq-item p a {
   color: var(--blue-deeper);
 }
+.faq-more {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  visibility: hidden;
+  margin-top: -12px;
+  transition:
+    grid-template-rows 0.9s ease,
+    opacity 0.9s ease,
+    margin-top 0.9s ease,
+    visibility 0s linear 0.9s;
+}
+.faq-more.open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  visibility: visible;
+  margin-top: 0;
+  transition:
+    grid-template-rows 0.9s ease,
+    opacity 0.9s ease,
+    margin-top 0.9s ease,
+    visibility 0s;
+}
+.faq-more-inner {
+  overflow: hidden;
+  min-height: 0;
+  display: grid;
+  gap: 12px;
+  padding: 4px 0 16px;
+  margin-bottom: -16px;
+}
+.faq-more-wrap {
+  text-align: center;
+  margin-top: 8px;
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+.faq-more-wrap.hide {
+  display: none;
+}
+.faq-more-btn {
+  font: inherit;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px 32px;
+  border-radius: 999px;
+  border: 1.5px solid var(--blue-deeper);
+  background: var(--white);
+  color: var(--blue-deeper);
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+.faq-more-btn:hover {
+  background: var(--blue-deeper);
+  color: var(--white);
+}
 /* ── BOTTOM CTA ── */
 .bottom-cta {
   background: linear-gradient(
