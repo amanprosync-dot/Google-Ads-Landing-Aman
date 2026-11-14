@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="en-IN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thank You | ProSync Infotech</title>
+    <!-- Hidden page: not linked anywhere, kept out of search engines. -->
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="theme-color" content="#0369a1" />
+    <link rel="icon" type="image/png" href="image/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      /* Uses the site theme tokens from css/style.css (--blue, --ink, --border…) */
+      body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      .ty-main {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px 16px;
+        background: linear-gradient(160deg, #eff9ff 0%, #f8fbff 55%, #eaf4fb 100%);
+      }
+      .ty-card {
+        width: 100%;
+        max-width: 720px;
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        box-shadow: 0 4px 24px rgba(14, 165, 233, 0.12);
+        padding: 36px 36px 28px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        animation: rise 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+      }
+      .ty-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--blue), var(--blue-deeper));
+      }
+      .ty-icon {
+        position: relative;
+        width: 72px;
+        height: 72px;
+        margin: 0 auto 16px;
+        border-radius: 50%;
+        background: var(--blue);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 6px 20px rgba(14, 165, 233, 0.35);
+        animation: pop 0.55s 0.1s cubic-bezier(0.3, 1.6, 0.5, 1) both;
+      }
+      .ty-icon::before,
+      .ty-icon::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        border: 2px solid var(--blue-muted);
+        animation: ring 2.4s ease-out infinite;
+      }
+      .ty-icon::after {
+        animation-delay: 1.2s;
+      }
+      .ty-icon path {
+        stroke-dasharray: 30;
+        stroke-dashoffset: 30;
+        animation: draw 0.45s 0.55s ease forwards;
+      }
+      .ty-card h1 {
+        font-size: clamp(26px, 4.5vw, 38px);
+        margin: 0 0 12px;
+      }
+      .ty-card h1 .accent {
+        font-style: normal;
+      }
+      .ty-lead {
+        font-size: 15px;
+        color: var(--ink-mid);
+        line-height: 1.7;
+        max-width: 520px;
+        margin: 0 auto 26px;
+      }
+      .ty-lead strong {
+        color: var(--ink);
+        font-weight: 600;
+      }
+      .ty-grid {
+        display: grid;
+        grid-template-columns: 250px 1fr;
+        gap: 16px;
+        margin: 0 0 22px;
+        text-align: left;
+        align-items: stretch;
+      }
+      /* ── Calendar ── */
+      .cal {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 2px 12px rgba(14, 165, 233, 0.08);
+        animation: rise 0.5s 0.25s both;
+      }
+      .cal-head {
+        background: var(--blue-deeper);
+        color: #fff;
+        padding: 10px 14px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 700;
+        font-size: 14px;
+      }
+      .cal-head span {
+        font-size: 10.5px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--blue-muted);
+        font-weight: 600;
+      }
+      .cal-grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 2px;
+        padding: 8px 8px 6px;
+        text-align: center;
+        font-size: 12px;
+        color: var(--ink-mid);
+      }
+      .cal-grid b {
+        font-size: 10px;
+        font-weight: 700;
+        color: var(--ink-light);
+        padding-bottom: 4px;
+      }
+      .cal-grid i {
+        font-style: normal;
+        height: 28px;
+        line-height: 28px;
+        border-radius: 6px;
+      }
+      .cal-grid i.sat {
+        color: var(--blue-deeper);
+        font-weight: 600;
+      }
+      .cal-grid i.on {
+        background: var(--blue);
+        color: #fff;
+        font-weight: 800;
+        box-shadow: 0 3px 10px rgba(14, 165, 233, 0.45);
+        animation: beat 2s ease-in-out infinite;
+      }
+      .cal-foot {
+        margin-top: auto;
+        padding: 10px 12px 12px;
+        border-top: 1px solid var(--border);
+        background: var(--bg);
+        text-align: center;
+        font-size: 12px;
+        color: var(--ink-mid);
+      }
+      .cal-foot strong {
+        display: block;
+        color: var(--ink);
+        font-size: 13px;
+        margin-bottom: 6px;
+      }
+      .cal-add {
+        display: inline-block;
+        background: var(--blue);
+        color: #fff;
+        padding: 6px 14px;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 12px;
+        text-decoration: none;
+        transition: background 0.2s;
+      }
+      .cal-add:hover {
+        background: var(--blue-dark);
+      }
+      @keyframes beat {
+        50% {
+          transform: scale(1.1);
+        }
+      }
+      .ty-steps {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 0;
+        text-align: left;
+      }
+      .ty-steps li {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 12px 14px;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease,
+          border-color 0.2s ease;
+        animation: rise 0.5s both;
+      }
+      .ty-steps li:nth-child(1) {
+        animation-delay: 0.3s;
+      }
+      .ty-steps li:nth-child(2) {
+        animation-delay: 0.4s;
+      }
+      .ty-steps li:nth-child(3) {
+        animation-delay: 0.5s;
+      }
+      .ty-steps li:hover {
+        transform: translateY(-3px);
+        border-color: var(--blue-muted);
+        box-shadow: 0 8px 22px rgba(14, 165, 233, 0.14);
+      }
+      .ty-step-ico {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        background: var(--blue-soft);
+        border: 1px solid var(--blue-muted);
+        color: var(--blue-deeper);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: none;
+      }
+      .ty-steps strong {
+        display: block;
+        font-size: 14.5px;
+        font-weight: 700;
+        color: var(--ink);
+        margin-bottom: 3px;
+      }
+      .ty-steps small {
+        display: block;
+        font-size: 12.5px;
+        line-height: 1.5;
+        color: var(--ink-mid);
+      }
+      .ty-note {
+        font-size: 13px;
+        color: var(--ink-light);
+        line-height: 1.6;
+        padding-top: 18px;
+        border-top: 1px solid var(--border);
+        margin: 0;
+      }
+      .ty-note a {
+        color: var(--blue-deeper);
+        font-weight: 600;
+        text-decoration: none;
+        border-bottom: 2px solid var(--blue-muted);
+      }
+      .ty-note a:hover {
+        border-color: var(--blue-deeper);
+      }
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      @keyframes pop {
+        from {
+          opacity: 0;
+          transform: scale(0.4);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      @keyframes draw {
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+      @keyframes ring {
+        from {
+          transform: scale(1);
+          opacity: 0.9;
+        }
+        to {
+          transform: scale(1.7);
+          opacity: 0;
+        }
+      }
+      @media (max-width: 640px) {
+        .ty-card {
+          padding: 28px 18px 22px;
+        }
+        .ty-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition: none !important;
+        }
+        .ty-icon path {
+          stroke-dashoffset: 0;
+        }
+      }
+    </style>
+    <!-- Payment tracking: paste your Google tag / Meta Pixel snippet here.
+         Both fire a conversion on every load of this page. -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "webinar_purchase",
+        page_type: "thank_you",
+        currency: "INR",
+        value: 195,
+      });
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="topbar">
+        Live Online Webinar &nbsp;·&nbsp;
+        <strong class="webinar-date">Every Saturday</strong>
+        &nbsp;·&nbsp; 11:00 AM – 2:00 PM &nbsp;·&nbsp; Hosted by ProSync
+        Infotech
+      </div>
+      <nav aria-label="Main">
+        <span class="logo">
+          <img src="image/favicon.png" alt="" width="28" height="28" />
+          <span>ProSync <em>Infotech</em></span>
+        </span>
+      </nav>
+    </header>
+
+    <main class="ty-main">
+      <div class="ty-card">
+        <div class="ty-icon" aria-hidden="true">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12.5l4.5 4.5L19 7.5" />
+          </svg>
+        </div>
+        <div class="event-tag">Payment successful</div>
+        <h1>Thank You! <span class="accent">Your Seat Is Confirmed</span></h1>
+        <p class="ty-lead">
+          We're excited to have you at the live
+          <strong>Amazon FBA webinar with Amar Bedi</strong>. Here's what
+          happens next.
+        </p>
+
+        <div class="ty-grid">
+        <div class="cal" id="cal" aria-label="Webinar date calendar">
+          <div class="cal-head">
+            <div id="cal-month">Webinar Date</div>
+            <span>Live</span>
+          </div>
+          <div class="cal-grid" id="cal-grid"></div>
+          <div class="cal-foot">
+            <strong id="cal-label">Every Saturday · 11:00 AM IST</strong>
+            <a class="cal-add" id="cal-add" href="#" target="_blank" rel="noopener">+ Add to Google Calendar</a>
+          </div>
+        </div>
+        <ul class="ty-steps">
+          <li>
+            <span class="ty-step-ico" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="M3 7l9 6 9-6" />
+              </svg>
+            </span>
+            <span>
+              <strong>Check your email</strong>
+              <small>Webinar details will be sent to your inbox</small>
+            </span>
+          </li>
+          <li>
+            <span class="ty-step-ico" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.7-5.2A8.5 8.5 0 1 1 21 11.5z" />
+                <path d="M9 9.5c.5 2.5 2.5 4.5 5 5l1.2-1.2-2-1-.8.8c-.8-.4-1.6-1.2-2-2l.8-.8-1-2z" />
+              </svg>
+            </span>
+            <span>
+              <strong>Watch WhatsApp</strong>
+              <small>You'll receive the details there too</small>
+            </span>
+          </li>
+          <li>
+            <span class="ty-step-ico" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="5" width="18" height="16" rx="2" />
+                <path d="M3 10h18M8 3v4M16 3v4" />
+              </svg>
+            </span>
+            <span>
+              <strong>Save the date</strong>
+              <small>Join live and bring your questions</small>
+            </span>
+          </li>
+        </ul>
+        </div>
+
+        <p class="ty-note">
+          Haven't received anything within a few minutes? Check your spam
+          folder or write to
+          <a href="mailto:support@prosyncedu.com">support@prosyncedu.com</a>.
+        </p>
+      </div>
+    </main>
+
+    <!-- Same auto-rolling Saturday 11 AM IST date logic as the home page -->
+    <script src="js/script.js" defer></script>
+    <script>
+      // Runs after the deferred script.js has set window.WEBINAR_DATE
+      document.addEventListener("DOMContentLoaded", function () {
+        var w = window.WEBINAR_DATE;
+        if (!w) return;
+        var MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+        var year = w.year;
+        var month = MONTHS.indexOf(w.month);
+        var day = parseInt(w.day, 10);
+
+        document.getElementById("cal-month").textContent = w.month + " " + year;
+        document.getElementById("cal-label").textContent =
+          w.full + " · 11:00 AM IST";
+
+        var first = new Date(Date.UTC(year, month, 1)).getUTCDay();
+        var total = new Date(Date.UTC(year, month + 1, 0)).getUTCDate();
+        var html = "S M T W T F S".split(" ").map(function (d) { return "<b>" + d + "</b>"; }).join("");
+        for (var i = 0; i < first; i++) html += "<i></i>";
+        for (var d = 1; d <= total; d++) {
+          var cls = (first + d - 1) % 7 === 6 ? "sat" : "";
+          if (d === day) cls = "on";
+          html += '<i class="' + cls + '">' + d + "</i>";
+        }
+        document.getElementById("cal-grid").innerHTML = html;
+
+        // Google Calendar link: 11:00–14:00 IST = 05:30–08:30 UTC
+        var p = function (n) { return (n < 10 ? "0" : "") + n; };
+        var ymd = year + p(month + 1) + p(day);
+        document.getElementById("cal-add").href =
+          "https://calendar.google.com/calendar/render?action=TEMPLATE" +
+          "&text=" + encodeURIComponent("Amazon FBA Live Webinar with Amar Bedi") +
+          "&dates=" + ymd + "T053000Z/" + ymd + "T083000Z" +
+          "&details=" + encodeURIComponent("Live online webinar hosted by ProSync Infotech.");
+      });
+    </script>
+  </body>
+</html>
