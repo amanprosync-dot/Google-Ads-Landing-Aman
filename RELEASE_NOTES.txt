@@ -1,0 +1,26 @@
+Google Ads pre-launch improvements (14 November 2026)
+
+Changed:
+- Removed all four unverified placeholder testimonials.
+- Reworded mentor bio and removed unsupported exact 50,000+ success/mentoring numbers.
+- Clarified Amazon FBA services, GST responsibilities and Prime eligibility.
+- Added refund/replay and possible additional-charge disclosures beside key registration buttons and in FAQ/schema.
+- Qualified absolute refund-denial language to preserve applicable legal rights.
+- Updated Saturday schedule rollover to 11 AM IST.
+- Changed consent-to-Instamojo redirect to same-tab to avoid popup blockers.
+- Loaded the existing funnel.js analytics events (dataLayer) on the homepage.
+
+Intentionally NOT changed, as requested:
+- robots.txt
+- sitemap.xml
+- domain-related/canonical configuration in index.html
+
+Must complete before Google Ads launch:
+1) Confirm the real Instamojo payment total and refund/fulfilment terms; edit if different.
+2) Test registration and completed purchase on desktop and mobile.
+3) Install your actual Google tag / GTM ID; funnel.js alone does NOT send events to Google.
+4) Configure completed purchase conversion on a verified paid checkout success flow; do not count button clicks as purchases.
+5) Verify all mentor credential claims, benefits, dates and training delivery against your records.
+6) Optional: Add genuine customer reviews with consent when available.
+
+No payment gateway credentials, conversion IDs or fictitious customer reviews were added.

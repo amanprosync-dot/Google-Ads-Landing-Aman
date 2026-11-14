@@ -79,14 +79,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,600;1,700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="sections.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/sections.css" />
     <!-- Google tag: paste your gtag.js / Google Tag Manager snippet here.
          funnel.js already pushes events to window.dataLayer. -->
-    <script src="funnel.js" defer></script>
+    <script src="js/funnel.js" defer></script>
   </head>
   <body>
     <header>
@@ -161,6 +161,12 @@
               >Register Now →</a
             >
             <div class="rc-secure">🔒 Secure payment</div>
+            <p class="payment-disclosure">
+              ₹195 per seat · No replay included · Registrations are generally
+              non-refundable, subject to applicable law and our
+              <a href="cancellation-refund-policy.html">Refund Policy</a>. Any
+              additional charges, if applicable, will be shown before payment.
+            </p>
             <div class="rc-includes">
               <div class="rc-item">
                 <span class="rc-check">✓</span> Session 1: Selling Established
@@ -257,7 +263,7 @@
             >Get These Questions Answered Live — ₹195 →</a
           >
           <p class="cta-note">
-            3 hours live · No replay · Results vary and are not guaranteed
+            3 hours live · No replay
           </p>
         </div>
       </section>
@@ -385,24 +391,26 @@
               <div class="ov-icon">🚚</div>
               <h3 class="ov-title">Shipping &amp; Delivery</h3>
               <p class="ov-desc">
-                Amazon handles labelling, dispatch, and last-mile delivery
-                through its own logistics infrastructure.
+                Amazon handles picking, packing and delivery for eligible FBA
+                orders, subject to its service terms and seller
+                responsibilities.
               </p>
             </div>
             <div class="ov-card">
               <div class="ov-icon">🧾</div>
               <h3 class="ov-title">Billing &amp; Returns</h3>
               <p class="ov-desc">
-                Amazon manages invoicing, GST-compliant billing, and customer
-                return processing as part of the FBA service.
+                Amazon handles eligible fulfilment and return processing under
+                its FBA terms. Sellers remain responsible for applicable GST,
+                invoicing and other legal obligations.
               </p>
             </div>
             <div class="ov-card">
               <div class="ov-icon">🌐</div>
               <h3 class="ov-title">Platform Access</h3>
               <p class="ov-desc">
-                FBA sellers gain visibility on Amazon's marketplace and Prime
-                eligibility for their listed products.
+                FBA listings can be eligible for Prime benefits when they meet
+                Amazon's requirements. Visibility and sales are not guaranteed.
               </p>
             </div>
             <div class="ov-card">
@@ -553,12 +561,71 @@
               aria-label="Audience type"
               aria-orientation="vertical"
             >
-              <button class="aud-tab" role="tab" id="tab-0" aria-controls="aud-panel" aria-selected="true" data-tab="0">🌱 Complete Beginner</button>
-              <button class="aud-tab" role="tab" id="tab-1" aria-controls="aud-panel" aria-selected="false" tabindex="-1" data-tab="1">📈 Existing Seller</button>
-              <button class="aud-tab" role="tab" id="tab-2" aria-controls="aud-panel" aria-selected="false" tabindex="-1" data-tab="2">💼 Working Professional</button>
-              <button class="aud-tab" role="tab" id="tab-3" aria-controls="aud-panel" aria-selected="false" tabindex="-1" data-tab="3">🏬 Retailer / Wholesaler</button>
-              <button class="aud-tab" role="tab" id="tab-4" aria-controls="aud-panel" aria-selected="false" tabindex="-1" data-tab="4">🏭 Aspiring Brand Owner</button>
-              <button class="aud-tab" role="tab" id="tab-5" aria-controls="aud-panel" aria-selected="false" tabindex="-1" data-tab="5">🎓 Student / Learner</button>
+              <button
+                class="aud-tab"
+                role="tab"
+                id="tab-0"
+                aria-controls="aud-panel"
+                aria-selected="true"
+                data-tab="0"
+              >
+                🌱 Complete Beginner
+              </button>
+              <button
+                class="aud-tab"
+                role="tab"
+                id="tab-1"
+                aria-controls="aud-panel"
+                aria-selected="false"
+                tabindex="-1"
+                data-tab="1"
+              >
+                📈 Existing Seller
+              </button>
+              <button
+                class="aud-tab"
+                role="tab"
+                id="tab-2"
+                aria-controls="aud-panel"
+                aria-selected="false"
+                tabindex="-1"
+                data-tab="2"
+              >
+                💼 Working Professional
+              </button>
+              <button
+                class="aud-tab"
+                role="tab"
+                id="tab-3"
+                aria-controls="aud-panel"
+                aria-selected="false"
+                tabindex="-1"
+                data-tab="3"
+              >
+                🏬 Retailer / Wholesaler
+              </button>
+              <button
+                class="aud-tab"
+                role="tab"
+                id="tab-4"
+                aria-controls="aud-panel"
+                aria-selected="false"
+                tabindex="-1"
+                data-tab="4"
+              >
+                🏭 Aspiring Brand Owner
+              </button>
+              <button
+                class="aud-tab"
+                role="tab"
+                id="tab-5"
+                aria-controls="aud-panel"
+                aria-selected="false"
+                tabindex="-1"
+                data-tab="5"
+              >
+                🎓 Student / Learner
+              </button>
             </div>
             <div
               class="aud-pane"
@@ -618,15 +685,16 @@
             <p>
               To master the art of selling on Amazon, Amar worked with top
               sellers in New York and Los Angeles, gaining firsthand insights
-              into multi-million-dollar e-commerce businesses. Over the past ten
-              years, he has helped 50,000+ entrepreneurs successfully launch and
-              scale their Amazon businesses, specializing in private label,
-              brand reselling, and global selling strategies.
+              into multi-million-dollar e-commerce businesses. He has trained
+              and mentored aspiring entrepreneurs in Amazon selling, including
+              private label, brand reselling, and global selling strategies. His
+              training focuses on helping learners evaluate opportunities and
+              understand the practical steps involved.
             </p>
             <p>
               As the founder of ProSync Infotech, he is on a mission to empower
-              sellers with the right knowledge and tools to dominate Amazon and
-              achieve financial success.
+              sellers with the right knowledge and tools to make more informed
+              e-commerce decisions.
             </p>
             <div class="about-stats">
               <div class="about-stat">
@@ -634,8 +702,8 @@
                 <span>Years in Business</span>
               </div>
               <div class="about-stat">
-                <b>50,000+</b>
-                <span>Entrepreneurs Mentored</span>
+                <b>FBA</b>
+                <span>Practical Seller Training</span>
               </div>
               <div class="about-stat">
                 <b>10+</b>
@@ -685,123 +753,6 @@
         </div>
       </section>
       <div class="divider"></div>
-      <!-- TESTIMONIALS -->
-      <!-- Replace each placeholder quotation with a real participant quote (with their permission) -->
-      <section class="section">
-        <div class="testi-head">
-          <h2 class="sec-title">Hear From Our Webinar Participants</h2>
-          <p class="testi-sub">
-            Real experiences. Practical learning. Informed decisions.
-          </p>
-        </div>
-        <div class="testi-grid">
-          <figure class="testi-card">
-            <figcaption class="testi-who">
-              <span class="testi-avatar" aria-hidden="true">
-                <svg
-                  viewBox="0 0 24 24"
-                  width="20"
-                  height="20"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <circle cx="12" cy="8" r="4" />
-                  <path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" />
-                </svg>
-              </span>
-              <span>
-                <strong>Rahul Mehta</strong>
-                <small>Aspiring Amazon Seller</small>
-              </span>
-            </figcaption>
-            <blockquote>
-              “I had been thinking about starting an Amazon business for a long time, but I didn't know where to begin. Amar Sir explained Amazon FBA, account setup, and product selection in a very simple way. The webinar gave me a much clearer idea of what steps I need to take before starting.”
-            </blockquote>
-          </figure>
-          <figure class="testi-card">
-            <figcaption class="testi-who">
-              <span class="testi-avatar" aria-hidden="true">
-                <svg
-                  viewBox="0 0 24 24"
-                  width="20"
-                  height="20"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <circle cx="12" cy="8" r="4" />
-                  <path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" />
-                </svg>
-              </span>
-              <span>
-                <strong>Priya Sharma</strong>
-                <small>E-Commerce Learner</small>
-              </span>
-            </figcaption>
-            <blockquote>
-              “The most interesting part of the webinar was the live product research. Amar Sir showed how to analyse products, understand demand, and check competition before making a decision. I had watched many videos about Amazon selling, but seeing the actual research process made it easier to understand.”
-            </blockquote>
-          </figure>
-          <figure class="testi-card">
-            <figcaption class="testi-who">
-              <span class="testi-avatar" aria-hidden="true">
-                <svg
-                  viewBox="0 0 24 24"
-                  width="20"
-                  height="20"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <circle cx="12" cy="8" r="4" />
-                  <path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" />
-                </svg>
-              </span>
-              <span>
-                <strong>Neha Kapoor</strong>
-                <small>Aspiring Entrepreneur</small>
-              </span>
-            </figcaption>
-            <blockquote>
-              “Before joining the webinar, I was confused about whether I should sell popular brands or start my own private label. Amar Sir explained the differences between both models, including investment, product selection, and challenges. It helped me understand what I should consider before choosing a business model.”
-            </blockquote>
-          </figure>
-          <figure class="testi-card">
-            <figcaption class="testi-who">
-              <span class="testi-avatar" aria-hidden="true">
-                <svg
-                  viewBox="0 0 24 24"
-                  width="20"
-                  height="20"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <circle cx="12" cy="8" r="4" />
-                  <path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" />
-                </svg>
-              </span>
-              <span>
-                <strong>Amit Verma</strong>
-                <small>Webinar Participant</small>
-              </span>
-            </figcaption>
-            <blockquote>
-              “I liked how Amar Sir explained everything with practical examples instead of just theory. He covered important topics like Amazon FBA, selling fees, product research, and common mistakes. The session was easy to follow, even for someone without much experience in e-commerce.”
-            </blockquote>
-          </figure>
-        </div>
-      </section>
-      <div class="divider"></div>
       <!-- FAQ -->
       <section class="section faq-section">
         <div class="faq-head">
@@ -841,7 +792,9 @@
             <p>
               Yes. The workshop registration fee is ₹195 per person. This covers
               access to the live online session and Q&amp;A. Any additional
-              charges, if applicable, will be shown before payment.
+              charges, if applicable, will be shown before payment. No replay is
+              included. Registrations are generally non-refundable, subject to
+              applicable law and the published Refund Policy.
             </p>
           </details>
           <details class="faq-item">
@@ -892,7 +845,8 @@
               <details class="faq-item">
                 <summary>What is the cancellation and refund policy?</summary>
                 <p>
-                  Workshop registrations are subject to ProSync's
+                  Webinar registrations are generally non-refundable, subject to
+                  applicable law, and are covered by ProSync's
                   <a
                     href="cancellation-refund-policy.html"
                     target="_blank"
@@ -961,7 +915,7 @@
                 "name": "Is the registration fee really just ₹195?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Yes. The workshop registration fee is ₹195 per person. This covers access to the live online session and Q&A. Any additional charges, if applicable, will be shown before payment."
+                  "text": "Yes. The workshop registration fee is ₹195 per person. This covers access to the live online session and Q&A. No replay is included. Registrations are generally non-refundable, subject to applicable law. Any additional charges, if applicable, will be shown before payment."
                 }
               },
               {
@@ -1001,7 +955,7 @@
                 "name": "What is the cancellation and refund policy?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Workshop registrations are subject to ProSync's Cancellation & Refund Policy. Please review the policy before making payment. For any registration or payment-related questions, you can contact our support team."
+                  "text": "Webinar registrations are generally non-refundable, subject to applicable law, and are covered by ProSync's Cancellation & Refund Policy. Please review the policy before payment. Contact support for payment-related questions."
                 }
               },
               {
@@ -1031,6 +985,12 @@
           rel="noopener"
           >Register Now →</a
         >
+        <p class="payment-disclosure">
+          ₹195 per seat · No replay included · Registrations are generally
+          non-refundable, subject to applicable law and our
+          <a href="cancellation-refund-policy.html">Refund Policy</a>. Any
+          additional charges, if applicable, will be shown before payment.
+        </p>
       </section>
     </main>
     <!-- FOOTER -->
@@ -1199,6 +1159,6 @@
         </div>
       </form>
     </dialog>
-    <script src="script.js" defer></script>
+    <script src="js/script.js" defer></script>
   </body>
 </html>

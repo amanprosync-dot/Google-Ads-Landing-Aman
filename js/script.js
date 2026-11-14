@@ -1,8 +1,8 @@
 // Show the next Saturday's webinar date (India time). Rolls over to the
-// following Saturday at 2:00 PM IST (when the session ends).
+// following Saturday at 11:00 AM IST (when the session begins).
 (function () {
   var IST_OFFSET = 5.5 * 60 * 60 * 1000;
-  var START_HOUR = 14;
+  var START_HOUR = 11;
   var MONTHS = [
     "January",
     "February",
@@ -165,8 +165,12 @@
   cancel.addEventListener("click", function () {
     dialog.close();
   });
-  form.addEventListener("submit", function () {
-    if (box.checked && target) window.open(target, "_blank", "noopener");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!box.checked || !target) return;
+    // Same-tab navigation avoids popup blocking on mobile browsers.
+    dialog.close();
+    window.location.assign(target);
   });
   dialog.addEventListener("click", function (e) {
     if (e.target === dialog) dialog.close(); // click on backdrop
