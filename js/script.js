@@ -176,3 +176,52 @@
     if (e.target === dialog) dialog.close(); // click on backdrop
   });
 })();
+
+// Sticky countdown to the next Saturday 11:00 AM IST session
+(function () {
+  var bar = document.getElementById("countdown-bar");
+  if (!bar) return;
+  var IST = 5.5 * 3600000;
+  var els = {
+    d: document.getElementById("cb-d"),
+    h: document.getElementById("cb-h"),
+    m: document.getElementById("cb-m"),
+    s: document.getElementById("cb-s"),
+  };
+  function pad(n) {
+    return n < 10 ? "0" + n : "" + n;
+  }
+  function tick() {
+    var now = Date.now();
+    var ist = new Date(now + IST);
+    var midnight = Date.UTC(ist.getUTCFullYear(), ist.getUTCMonth(), ist.getUTCDate());
+    var daysToSat = (6 - ist.getUTCDay() + 7) % 7;
+    var start = midnight + daysToSat * 86400000 + 11 * 3600000 - IST;
+    // At 11:00 AM IST on Saturday the countdown resets to the next Saturday
+    // (same rollover as the webinar date shown on the page).
+    if (now >= start) start += 7 * 86400000;
+    var diff = Math.max(0, start - now);
+    var s = Math.floor(diff / 1000);
+    els.d.textContent = pad(Math.floor(s / 86400));
+    els.h.textContent = pad(Math.floor((s % 86400) / 3600));
+    els.m.textContent = pad(Math.floor((s % 3600) / 60));
+    els.s.textContent = pad(s % 60);
+    // Progress rings: remaining share of each unit
+    els.d.style.setProperty("--p", (Math.floor(s / 86400) / 7) * 100);
+    els.h.style.setProperty("--p", (Math.floor((s % 86400) / 3600) / 24) * 100);
+    els.m.style.setProperty("--p", (Math.floor((s % 3600) / 60) / 60) * 100);
+    els.s.style.setProperty("--p", ((s % 60) / 60) * 100);
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  // Show the bar only after the hero section has fully scrolled out of view
+  var hero = document.querySelector(".hero-outer");
+  function toggle() {
+    var past = hero ? hero.getBoundingClientRect().bottom <= 0 : true;
+    bar.classList.toggle("is-visible", past);
+  }
+  toggle();
+  window.addEventListener("scroll", toggle, { passive: true });
+  window.addEventListener("resize", toggle);
+})();

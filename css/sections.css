@@ -64,8 +64,8 @@
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: #dcfce7;
-  color: #0b9c79;
+  background: #e0f2fe;
+  color: #0284c7;
   font-size: 11px;
   font-weight: 800;
 }
@@ -130,23 +130,21 @@
   display: inline-flex; align-items: center; justify-content: center;
   width: 22px; height: 22px;
   border-radius: 50%;
-  background: #dcfce7;
-  color: #0b9c79;
+  background: #e0f2fe;
+  color: #0284c7;
   font-size: 12px; font-weight: 800;
 }
-.model-card.is-dark {
-  background: linear-gradient(160deg, #0a78b5 0%, #075985 100%);
-  border-color: var(--blue-deeper);
-  color: #fff;
-  box-shadow: 0 10px 30px rgba(7, 89, 133, 0.35);
+.model-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #38bdf8, #0ea5e9);
 }
-.model-card.is-dark::after { background: radial-gradient(circle, rgba(125, 211, 252, 0.18), transparent 65%); }
-.model-card.is-dark .ov-icon { background: rgba(255, 255, 255, 0.14); border-color: rgba(255, 255, 255, 0.25); }
-.model-card.is-dark h3 { color: #fff; }
-.model-card.is-dark p { color: #cfeafc; }
-.model-card.is-dark .sec-label { color: #bae6fd; background: rgba(255, 255, 255, 0.14); }
-.model-card.is-dark .model-list li { border-top-color: rgba(255, 255, 255, 0.2); }
-.model-card.is-dark .model-list li::before { background: rgba(125, 211, 252, 0.25); color: #e0f2fe; }
+.model-card.is-dark::before { background: linear-gradient(90deg, #0ea5e9, #0369a1); }
+.model-card.is-dark { border-color: #bae6fd; box-shadow: 0 8px 26px rgba(3, 105, 161, 0.12); }
+.model-card.is-dark .ov-icon { background: #e0f2fe; border-color: #bae6fd; }
+.model-card.is-dark .sec-label { background: rgba(3, 105, 161, 0.1); color: #0369a1; }
 
 .aud-band { background: linear-gradient(180deg, #e8f5ff 0%, var(--blue-soft) 100%); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 .aud-layout { display: grid; grid-template-columns: 310px 1fr; gap: 24px; align-items: stretch; }
