@@ -84,7 +84,7 @@
       eventAttendanceMode:
         "https://schema.org/OnlineEventAttendanceMode",
       location: { "@type": "VirtualLocation", url: registerUrl },
-      image: ["https://asm.prosyncedu.com/image/amar-bedi-2.png"],
+      image: ["https://asm.prosyncedu.com/image/amar-bedi-2.webp"],
       offers: {
         "@type": "Offer",
         price: "195",
