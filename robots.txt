@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /thank-you.html
 
-Sitemap: https://live.prosyncedu.com/prosync/sitemap.xml
+Sitemap: https://asm.prosyncedu.com/sitemap.xml
