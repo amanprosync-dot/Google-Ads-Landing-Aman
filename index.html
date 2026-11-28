@@ -128,11 +128,32 @@
         Infotech
       </div>
       <!-- NAV -->
-      <nav aria-label="Main">
+      <nav class="main-nav" aria-label="Main">
         <a href="#" class="logo" style="text-decoration: none">
           <img src="image/favicon.webp" alt="" width="28" height="28" />
           <span>ProSync <em>Infotech</em></span>
         </a>
+        <button
+          type="button"
+          class="nav-toggle"
+          id="nav-toggle"
+          aria-expanded="false"
+          aria-controls="nav-links"
+          aria-label="Menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#problems">Challenges</a></li>
+          <li><a href="#details">Workshop</a></li>
+          <li><a href="#learn">Learn</a></li>
+          <li><a href="#how-fba-works">How FBA Works</a></li>
+          <li><a href="#models">Demos</a></li>
+          <li><a href="#agenda">Agenda</a></li>
+          <li><a href="#audiences">Who It's For</a></li>
+          <li><a href="#mentor">Mentor</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
         <a
           href="https://www.instamojo.com/@ProSync/le7be2aeb01034f25a040112269ba4710/"
           class="nav-cta"
@@ -149,7 +170,7 @@
           <div class="hero-left">
             <div class="event-tag">Live Webinar &nbsp;·&nbsp; 3 Hours</div>
             <h1>
-              Want to Sell on Amazon,
+              Want to Sell on Amazon FBA,
               <span class="accent">But Don't Know Where to Begin?</span>
             </h1>
             <p class="hero-desc">
@@ -297,7 +318,7 @@
       </section>
       <div class="divider"></div>
       <!-- WORKSHOP PREVIEW -->
-      <section class="section wk-section">
+      <section class="section wk-section" id="details">
         <div class="wk-head">
           <div class="sec-label">An Inside Look at the Live Workshop</div>
           <h2 class="sec-title">Explore Webinar Details</h2>
@@ -339,7 +360,7 @@
       </section>
       <div class="divider"></div>
       <!-- WHO IT'S FOR (duplicated section) -->
-      <section class="section">
+      <section class="section" id="learn">
         <div class="sec-label">Live Educational Webinar</div>
         <h2 class="sec-title">Learn How to Start Selling on Amazon</h2>
         <p class="sec-desc">
@@ -404,6 +425,7 @@
       </section>
       <!-- HOW FBA WORKS -->
       <div
+        id="how-fba-works"
         style="
           background: var(--blue-soft);
           border-top: 1px solid var(--border);
@@ -533,7 +555,7 @@
         </div>
       </section>
       <!-- AGENDA -->
-      <section class="section">
+      <section class="section" id="agenda">
         <div class="sec-label">Schedule</div>
         <h2 class="sec-title">Session Agenda</h2>
         <p class="sec-desc" style="margin-bottom: 36px">
@@ -713,7 +735,7 @@
         </section>
       </div>
       <!-- ABOUT THE MENTOR -->
-      <section class="section">
+      <section class="section" id="mentor">
         <div class="about-head">
           <div class="sec-label">Meet Your Mentor</div>
           <h2 class="sec-title">Amar Bedi</h2>
@@ -808,7 +830,7 @@
       </section>
       <div class="divider"></div>
       <!-- FAQ -->
-      <section class="section faq-section">
+      <section class="section faq-section" id="faq">
         <div class="faq-head">
           <div class="sec-label">Questions &amp; Answers</div>
           <h2 class="sec-title">Frequently Asked Questions</h2>

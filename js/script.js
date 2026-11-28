@@ -112,6 +112,30 @@
   setInterval(render, 60 * 1000);
 })();
 
+// Navbar menu button (narrow screens)
+(function () {
+  var btn = document.getElementById("nav-toggle");
+  var links = document.getElementById("nav-links");
+  if (!btn || !links) return;
+  function setOpen(open) {
+    links.classList.toggle("is-open", open);
+    btn.setAttribute("aria-expanded", String(open));
+  }
+  btn.addEventListener("click", function () {
+    setOpen(!links.classList.contains("is-open"));
+  });
+  // Close after choosing a section, before the page scrolls to it
+  links.addEventListener("click", function (e) {
+    if (e.target.closest("a")) setOpen(false);
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && links.classList.contains("is-open")) {
+      setOpen(false);
+      btn.focus();
+    }
+  });
+})();
+
 // FAQ "Load More"
 (function () {
   var btn = document.getElementById("faq-more-btn");
