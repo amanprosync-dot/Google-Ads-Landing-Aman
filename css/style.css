@@ -165,6 +165,11 @@ nav {
     border-top: 1px solid var(--border);
   }
 }
+/* Section links are hidden for now. Delete this rule to show them again. */
+.main-nav .nav-links,
+.main-nav .nav-toggle {
+  display: none;
+}
 /* ── HERO ── */
 .hero-outer {
   background: linear-gradient(
@@ -1496,9 +1501,6 @@ footer {
   .reg-card {
     position: static;
   }
-  nav .nav-cta {
-    display: none;
-  }
   h1 {
     font-size: clamp(30px, 7vw, 42px);
   }
@@ -1542,6 +1544,15 @@ footer {
   }
   nav {
     padding: 14px 5%;
+    gap: 10px;
+  }
+  nav .logo {
+    font-size: 15px;
+  }
+  nav .nav-cta {
+    padding: 8px 12px;
+    font-size: 13px;
+    white-space: nowrap;
   }
   .hero-wrap {
     padding: 40px 5% 48px;
